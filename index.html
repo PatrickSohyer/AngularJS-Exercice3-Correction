@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="assets/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+  <script src="assets/js/angular.js" charset="utf-8"></script>
+  <script src="https://code.angularjs.org/1.7.8/angular-messages.min.js"></script>
+
+  <title>Correction exercice 3!</title>
+</head>
+
+<body ng-app="myApp">
+
+
+  <div class="row" ng-controller="formCtrl">
+    <div class="col-md-6 col-lg-6 col-10 mx-auto text-center">
+      <form name="formMail">
+        <div class="form-group">
+          <label for="name">Saisissez votre nom : </label>
+          <input type="text" name="name" class="form-control" ng-pattern="regexName" ng-model="name" id="name" placeholder="Nom" required />
+          <div ng-messages="formMail.name.$error" ng-if="formMail.name.$touched">
+            <div class="text-danger" ng-message="required">Veuillez entrer un nom!</div>
+            <div class="text-warning" ng-message="pattern">Merci de bien vouloir changer de nom!</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Saisissez votre mail : </label>
+          <input type="email" name="email" ng-pattern="regexMail" ng-model="email" class="form-control" id="email" placeholder="mail@exemple.com" required />
+          <div ng-messages="formMail.email.$error" ng-if="formMail.email.$touched">
+            <div class="text-danger" ng-message="required">Veuillez entrer un Email!</div>
+            <div class="text-warning" ng-message="pattern">Votre email doit être au format name@exemple.com!</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="topic">Saisissez le sujet de votre Mail : </label>
+          <input type="text" class="form-control" name="topic" ng-model="topic" id="topic" placeholder="Sujet" required />
+          <div ng-messages="formMail.topic.$error" ng-if="formMail.topic.$touched">
+            <div class="text-danger" ng-message="required">Veuillez entrer un sujet!</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textArea"></label>
+          <textarea class="form-control" name="textArea" ng-model="textArea" id="textArea" placeholder="Entre 3 et 180 caractères" ng-minlength="3" ng-maxlength="180" required></textarea>
+          <div ng-messages="formMail.textArea.$error" ng-if="formMail.textArea.$touched">
+            <div class="text-danger" ng-message="required">Veuillez entrer votre message!</div>
+            <div class="text-warning" ng-message="minlength">Minimum 3 caractères</div>
+            <div class="text-warning" ng-message="maxlength">Maximum 180 caractères</div>
+          </div>
+        </div>
+        <button class="btn btn-success" ng-disabled="formMail.$invalid">Envoyer</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="assets/bootstrap-4.3.1-dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
