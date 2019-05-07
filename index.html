@@ -50,10 +50,22 @@
             <div class="text-warning" ng-message="maxlength">Maximum 180 caractères</div>
           </div>
         </div>
-        <button class="btn btn-success" ng-disabled="formMail.$invalid">Envoyer</button>
+        <button ng-click="storeData()" class="btn btn-success" ng-disabled="formMail.$invalid">Envoyer</button>
       </form>
+      <div class="text-left">
+        <ul>
+          <li class="text-success mt-2" ng-repeat="topic in mailInfos"><a href="youtube.com/petitchatmignon{{$index}}"> {{topic.topic}} - {{$index}} </a></li>
+        </ul>
+        <p>{{mailInfos[1].name}}</p>
+        <p>{{mailInfos[1].email}}</p>
+        <p>{{mailInfos[1].topic}}</p>
+        <p>{{mailInfos[1].textArea}}</p>
+      </div>
     </div>
   </div>
+
+  <div ng-view></div>
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
