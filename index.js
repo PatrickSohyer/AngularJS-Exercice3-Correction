@@ -1,5 +1,21 @@
-var myApp = angular.module('myApp', ['ngMessages']);
+var myApp = angular.module('myApp', ['ngMessages', 'ngRoute']);
 // je crée mon controller, je le nomme formCtrl, je lui attribut $scope et je lance la function
+
+myApp.config(['$routeProvider', function($routeProvider) {
+
+  $routeProvider
+    .when('/', {
+      templateUrl: 'views/form.html',
+      controller: 'formCtrl'
+    })
+    .when('/infos', {
+      templateUrl: 'views/infos.html',
+      controller: 'formCtrl'
+    });
+}]);
+
+
+
 myApp.controller('formCtrl', ['$scope', function($scope) {
   // je scope regexName et je rentre la regex qui n'autorise pas les caractères spéciaux les chiffres et les prénoms de moins deux lettres et quinze lettres max
   $scope.regexName = /^[a-zA-ZéèÉÈôîêûÛÊÔÎùÙïöëüËÏÖÜ']{2,26}[- ']?[a-zA-ZéèÉÈôîêûÛÊÔÎùÙïöëüËÏÖÜ]{0,26}$/;
