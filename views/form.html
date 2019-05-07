@@ -37,7 +37,8 @@
       </form>
       <div class="text-left">
         <ul>
-          <li class="text-success mt-2" ng-repeat="topic in mailInfos"><a href="#!/infos"> {{topic.topic}} - {{$index}} </a></li>
+          <!-- je récupère l'index de mon objet '$index' et je le passe en paramètre d'url via le $routeProvider 'infos/:index' -->
+          <li class="text-success mt-2" ng-repeat="object in mailInfos"><a href="#!/infos/{{$index}}">{{object.topic}}</a></li>
         </ul>
       </div>
     </div>
